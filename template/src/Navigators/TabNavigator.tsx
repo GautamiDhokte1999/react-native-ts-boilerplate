@@ -32,14 +32,14 @@ const TabNavigator = () => {
         name="Tab1"
         component={Tab1}
         options={{
-          tabBarIcon: iconProps => getTabIcon('Products', iconProps),
+          tabBarIcon: iconProps => getTabIcon('Tab1', iconProps),
         }}
       />
       <Tab.Screen
         name="Tab2"
         component={Tab2}
         options={{
-          tabBarIcon: iconProps => getTabIcon('Shipments', iconProps),
+          tabBarIcon: iconProps => getTabIcon('Tab2', iconProps),
         }}
       />
     </Tab.Navigator>
