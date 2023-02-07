@@ -33,8 +33,12 @@ export const Colors = {
   inputText: 'rgba(27, 27, 31,0.85)',
   grey: '#49454F',
   divider: '#CAC4D0',
-};
+}
+
+export const BorderWidth = {
+  divider: 0.5,
+}
 
 export default {
   Colors,
-};
+}

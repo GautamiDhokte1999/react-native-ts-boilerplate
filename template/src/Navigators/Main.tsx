@@ -1,47 +1,25 @@
-import React, { useState } from 'react';
-import {BottomNavigation, Text} from 'react-native-paper';
+import { InsideTab1 } from '@/Containers/Tab1'
+import { createStackNavigator } from '@react-navigation/stack'
+import React from 'react'
+import TabNavigator from './TabNavigator'
 
-const MusicRoute = () => <Text>Music</Text>;
+const Stack = createStackNavigator()
 
-const AlbumsRoute = () => <Text>Albums</Text>;
-
-const RecentsRoute = () => <Text>Recents</Text>;
-
-const NotificationsRoute = () => <Text>Notifications</Text>;
-
-const MyComponent = () => {
-  const [index, setIndex] = useState<number>(0);
-  const [routes] = useState([
-    {
-      key: 'music',
-      title: 'Favorites',
-      focusedIcon: 'heart',
-      unfocusedIcon: 'heart-outline',
-    },
-    {key: 'albums', title: 'Albums', focusedIcon: 'album'},
-    {key: 'recents', title: 'Recents', focusedIcon: 'history'},
-    {
-      key: 'notifications',
-      title: 'Notifications',
-      focusedIcon: 'bell',
-      unfocusedIcon: 'bell-outline',
-    },
-  ]);
-
-  const renderScene = BottomNavigation.SceneMap({
-    music: MusicRoute,
-    albums: AlbumsRoute,
-    recents: RecentsRoute,
-    notifications: NotificationsRoute,
-  });
-
-  return (
-    <BottomNavigation
-      navigationState={{index, routes}}
-      onIndexChange={setIndex}
-      renderScene={renderScene}
+const MainNav = () => (
+  <Stack.Navigator initialRouteName="Home">
+    {/* bottom tab is initial stack screen */}
+    <Stack.Screen
+      name="Home"
+      component={TabNavigator}
+      options={{ headerShown: false }}
     />
-  );
-};
+    {/* Tab1 routes */}
+    <Stack.Screen
+      name="InsideTab1"
+      component={InsideTab1}
+      options={{ headerShown: false }}
+    />
+  </Stack.Navigator>
+)
 
-export default MyComponent;
+export default MainNav
